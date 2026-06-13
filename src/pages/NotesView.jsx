@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
-import rehypeRaw from 'rehype-raw'; // Fixes the <sup> and <sub> bugs
+import rehypeRaw from 'rehype-raw';
+import remarkGfm from 'remark-gfm'; // 👈 IMPORT THIS NEW PLUGIN
 import { subjects } from '../data/subjects';
 
 export default function NotesView() {
@@ -34,11 +35,16 @@ export default function NotesView() {
 
         <div className="document-body">
           <article className="markdown-content">
-            <ReactMarkdown rehypePlugins={[rehypeRaw]}>{markdown}</ReactMarkdown>
+            {/* 🔽 ADD THE remarkGfm PLUGIN HERE */}
+            <ReactMarkdown 
+              remarkPlugins={[remarkGfm]} 
+              rehypePlugins={[rehypeRaw]}
+            >
+              {markdown}
+            </ReactMarkdown>
           </article>
         </div>
 
-        {/* Spacious, balanced action box for Quiz launch */}
         <div className="quiz-trigger-zone">
           <div className="quiz-trigger-text">
             <h3>Ready for verification?</h3>

@@ -336,3 +336,44 @@ body {
     display: none; /* Drops status indicator smoothly on tight phone panels */
   }
 }
+/* --- Markdown Table Elements --- */
+.markdown-content table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 2rem 0;
+  font-size: 1rem;
+  text-align: left;
+}
+
+.markdown-content th {
+  background-color: #fafafa;
+  color: #000000;
+  font-weight: 600;
+  padding: 1rem;
+  border-bottom: 2px solid #e0e0e0;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.05em;
+}
+
+.markdown-content td {
+  padding: 1rem;
+  border-bottom: 1px solid #e0e0e0;
+  color: #333333;
+  line-height: 1.5;
+  vertical-align: top;
+}
+
+/* Zebra striping for structured component parameters row blocks */
+.markdown-content tr:nth-child(even) {
+  background-color: #fdfdfd;
+}
+
+/* Handle mobile scaling for dense formulas columns tables */
+@media (max-width: 768px) {
+  .markdown-content table {
+    display: block;
+    overflow-x: auto; /* Adds a clean side-scrolling block for charts on phones */
+    white-space: nowrap;
+  }
+}
