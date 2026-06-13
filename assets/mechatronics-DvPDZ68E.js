@@ -1,1 +1,0 @@
-var e=[{id:1,question:`Which communication protocol uses a differential two-wire bus?`,options:[`SPI`,`I2C`,`CAN bus`,`UART`],correctAnswer:`CAN bus`},{id:2,question:`What is the typical resolution of an STM32F4 ADC?`,options:[`8-bit`,`10-bit`,`12-bit`,`16-bit`],correctAnswer:`12-bit`}];export{e as default};
