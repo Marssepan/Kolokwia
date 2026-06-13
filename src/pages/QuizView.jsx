@@ -9,6 +9,8 @@ export default function QuizView() {
   const [gameState, setGameState] = useState('config'); // 'config' | 'playing' | 'results'
   const [questionCount, setQuestionCount] = useState(5);
   const [currentIdx, setCurrentIdx] = useState(0);
+  
+  // Store user selections as an array of selected indices: { questionIdx: [0, 2] }
   const [userAnswers, setUserAnswers] = useState({});
 
   useEffect(() => {
@@ -25,29 +27,48 @@ export default function QuizView() {
     setGameState('playing');
   };
 
-  const handleAnswerSelect = (answer) => {
-    setUserAnswers({ ...userAnswers, [currentIdx]: answer });
+  const handleOptionToggle = (optionIdx) => {
+    const currentSelections = userAnswers[currentIdx] || [];
+    if (currentSelections.includes(optionIdx)) {
+      setUserAnswers({
+        ...userAnswers,
+        [currentIdx]: currentSelections.filter(idx => idx !== optionIdx)
+      });
+    } else {
+      setUserAnswers({
+        ...userAnswers,
+        [currentIdx]: [...currentSelections, optionIdx].sort()
+      });
+    }
+  };
+
+  const isAnswerCorrect = (q, idx) => {
+    const userSelections = userAnswers[idx] || [];
+    const correctSelections = q.correctIndices || [];
+    
+    if (userSelections.length !== correctSelections.length) return false;
+    return userSelections.every(val => correctSelections.includes(val));
   };
 
   const calculateScore = () => {
     let score = 0;
     quizQuestions.forEach((q, idx) => {
-      if (userAnswers[idx] === q.correctAnswer) score++;
+      if (isAnswerCorrect(q, idx)) score++;
     });
     return score;
   };
 
   if (allQuestions.length === 0) {
-    return <div className="main-layout text-center">Parsing configuration logs...</div>;
+    return <div className="main-layout text-center">Parsing matrix configuration arrays...</div>;
   }
 
-  // --- 1. SETUP MODULE ---
+  // --- 1. SETUP PARAMETERS PANEL ---
   if (gameState === 'config') {
     return (
       <div className="main-layout flex-center">
         <div className="quiz-card-box setup-box">
           <h2 className="panel-title">Quiz Configurator</h2>
-          <p className="panel-desc">Set question array limits before evaluation.</p>
+          <p className="panel-desc">Set question array limits before evaluating multi-answer nodes.</p>
           
           <div className="input-group">
             <label>Question Count (Max {allQuestions.length}):</label>
@@ -60,36 +81,54 @@ export default function QuizView() {
           </div>
           
           <button onClick={startQuiz} className="quiz-btn-primary">
-            Initialize Sequence
+            Initialize Evaluation Run
           </button>
         </div>
       </div>
     );
   }
 
-  // --- 2. GAMEPLAY ACTIVE NODE ---
+  // --- 2. MULTI-SELECT ACTIVE RUNTIME ---
   if (gameState === 'playing') {
     const currentQuestion = quizQuestions[currentIdx];
+    const currentSelections = userAnswers[currentIdx] || [];
+
     return (
       <div className="main-layout">
         <div className="quiz-card-box">
           <div className="quiz-progress">
             <span>Question {currentIdx + 1} of {quizQuestions.length}</span>
+            {currentQuestion.correctIndices.length > 1 && (
+              <span className="multiselect-warning">⚠️ WIELOKROTNY WYBÓR</span>
+            )}
           </div>
 
           <h3 className="quiz-question-text">{currentQuestion.question}</h3>
 
+          {/* Dynamic Image Container Hook */}
+          {currentQuestion.image && (
+            <div className="quiz-image-container">
+              <img 
+                src={`${import.meta.env.BASE_URL}${currentQuestion.image.replace(/^\//, '')}`} 
+                alt="Schemat pomocniczy" 
+                className="quiz-circuit-img"
+              />
+            </div>
+          )}
+
           <div className="quiz-options-list">
-            {currentQuestion.options.map((option) => {
-              const isSelected = userAnswers[currentIdx] === option;
+            {currentQuestion.options.map((option, optionIdx) => {
+              const isChecked = currentSelections.includes(optionIdx);
               return (
                 <button
-                  key={option}
-                  onClick={() => handleAnswerSelect(option)}
-                  className={`quiz-option-row ${isSelected ? 'selected' : ''}`}
+                  key={optionIdx}
+                  onClick={() => handleOptionToggle(optionIdx)}
+                  className={`quiz-option-row ${isChecked ? 'selected' : ''}`}
                 >
                   <span>{option}</span>
-                  <div className="radio-circle" />
+                  <div className="checkbox-square">
+                    {isChecked && <div className="checkbox-check" />}
+                  </div>
                 </button>
               );
             })}
@@ -105,7 +144,6 @@ export default function QuizView() {
             </button>
             {currentIdx < quizQuestions.length - 1 ? (
               <button 
-                disabled={!userAnswers[currentIdx]}
                 onClick={() => setCurrentIdx(currentIdx + 1)}
                 className="quiz-btn-primary"
               >
@@ -113,7 +151,6 @@ export default function QuizView() {
               </button>
             ) : (
               <button 
-                disabled={!userAnswers[currentIdx]}
                 onClick={() => setGameState('results')}
                 className="quiz-btn-success"
               >
@@ -126,7 +163,7 @@ export default function QuizView() {
     );
   }
 
-  // --- 3. COLOR-CODED RESULTS SUMMARY ---
+  // --- 3. SUMMARY REVIEW MODULE ---
   if (gameState === 'results') {
     const score = calculateScore();
     return (
@@ -146,19 +183,45 @@ export default function QuizView() {
 
         <div className="results-list">
           {quizQuestions.map((q, idx) => {
-            const isCorrect = userAnswers[idx] === q.correctAnswer;
+            const isCorrect = isAnswerCorrect(q, idx);
+            const userSelections = userAnswers[idx] || [];
+            const correctSelections = q.correctIndices || [];
+
             return (
               <div key={q.id} className="log-item-box">
                 <p className="log-question">
                   <span className="log-index">{idx + 1}.</span> {q.question}
                 </p>
+                
                 <div className="log-answers-grid">
+                  {/* User response panel */}
                   <div className={`log-badge ${isCorrect ? 'correct' : 'incorrect'}`}>
-                    <span className="badge-label">Your Entry:</span> {userAnswers[idx]}
+                    <span className="badge-label">
+                      {isCorrect ? '✓ Twój Wybór (Prawidłowy)' : '✗ Twój Wybór (Błędny)'}
+                    </span>
+                    <div className="log-badge-text">
+                      {userSelections.length === 0 ? (
+                        <span className="italic opacity-50">Brak odpowiedzi</span>
+                      ) : (
+                        userSelections.map(idx => q.options[idx]).join(' || ')
+                      )}
+                    </div>
                   </div>
-                  {!isCorrect && (
-                    <div className="log-badge correct">
-                      <span className="badge-label">Expected:</span> {q.correctAnswer}
+                  
+                  {/* Answer template conditional target */}
+                  {!isCorrect ? (
+                    <div className="log-badge expected-matrix">
+                      <span className="badge-label">Klucz Odpowiedzi:</span>
+                      <div className="log-badge-text">
+                        {correctSelections.map(idx => q.options[idx]).join(' || ')}
+                      </div>
+                    </div>
+                  ) : (
+                    <div className="log-badge correct" style={{ backgroundColor: '#fafafa', opacity: 0.8 }}>
+                      <span className="badge-label">Status Zadania:</span>
+                      <div className="log-badge-text" style={{ color: '#166534' }}>
+                        Wszystkie wymagane parametry zostały dopasowane.
+                      </div>
                     </div>
                   )}
                 </div>

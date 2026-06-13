@@ -1,7 +1,7 @@
 export const subjects = [
     {
       id: 'mechatronics',
-      title: 'Mechatronics Systems',
+      title: 'Elementy i układy elektroniczne',
       description: 'Microcontrollers, sensors, and actuators.',
       icon: '🤖',
       notesPath: 'notes/mechatronics.md', // Placed in public folder

@@ -241,10 +241,10 @@
     background-color: #fdfdfd;
   }
   
-  /* ==========================================================================
-     6. CONTEXTUAL QUIZ PANELS & EVALUATION
-     ========================================================================== */
-  .quiz-trigger-zone {
+/* ==========================================================================
+   6. CONTEXTUAL QUIZ PANELS & EVALUATION (REFINED)
+   ========================================================================== */
+   .quiz-trigger-zone {
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -286,6 +286,51 @@
   .input-group label { font-size: 0.875rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; color: #444444; }
   .quiz-input { padding: 1rem; border: 1px solid #cbd5e1; font-size: 1.125rem; width: 100%; box-sizing: border-box; }
   
+  .quiz-progress {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.875rem;
+    color: #888888;
+    font-family: monospace;
+    margin-bottom: 1.5rem;
+  }
+  
+  .multiselect-warning {
+    font-size: 0.75rem;
+    font-weight: 700;
+    background-color: #fffbeb;
+    color: #b45309;
+    border: 1px solid #fde68a;
+    padding: 0.25rem 0.5rem;
+  }
+  
+  .quiz-question-text {
+    font-size: 1.5rem;
+    font-weight: 400;
+    line-height: 1.4;
+    margin: 0 0 2rem 0;
+  }
+  
+  /* Helper Schematic Container */
+  .quiz-image-container {
+    width: 100%;
+    border: 1px solid #e0e0e0;
+    background: #fafafa;
+    margin: 0 0 2rem 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1.5rem;
+    box-sizing: border-box;
+  }
+  
+  .quiz-circuit-img {
+    max-width: 100%;
+    max-height: 220px;
+    object-fit: contain;
+  }
+  
   .quiz-options-list { display: flex; flex-direction: column; gap: 1rem; margin: 2rem 0; }
   .quiz-option-row {
     display: flex;
@@ -298,12 +343,32 @@
     text-align: left;
     cursor: pointer;
     transition: border-color 0.15s, background 0.15s;
+    width: 100%;
   }
   .quiz-option-row:hover { border-color: #000000; background: #fcfcfc; }
   .quiz-option-row.selected { border-color: #2563eb; background: #f0f7ff; font-weight: 600; }
   
-  .radio-circle { width: 16px; height: 16px; border: 1px solid #cbd5e1; border-radius: 50%; }
-  .quiz-option-row.selected .radio-circle { background: #2563eb; border-color: #2563eb; }
+  /* Structural Square Checkbox boxes placeholders */
+  .checkbox-square {
+    width: 16px;
+    height: 16px;
+    border: 1px solid #cbd5e1;
+    background: #ffffff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-left: 1rem;
+  }
+  .quiz-option-row.selected .checkbox-square {
+    background: #2563eb;
+    border-color: #2563eb;
+  }
+  .checkbox-check {
+    width: 6px;
+    height: 6px;
+    background: #ffffff;
+  }
   
   .quiz-nav-footer { display: flex; justify-content: space-between; gap: 1rem; margin-top: 3rem; }
   .quiz-btn-primary, .quiz-btn-secondary, .quiz-btn-success {
@@ -320,18 +385,37 @@
   .score-num { font-size: 3rem; font-weight: 900; color: #2563eb; }
   .score-total { font-size: 1.5rem; color: #888888; font-weight: 700; }
   
-  .logs-header { max-width: 700px; margin: 3rem auto 1rem auto; border-b: 1px solid #e0e0e0; padding-bottom: 0.5rem; }
-  .log-item-box { background: #ffffff; border: 1px solid #e0e0e0; padding: 2rem; max-width: 700px; margin: 0 auto 1.5rem auto; box-sizing: border-box; }
-  .log-question { font-size: 1.125rem; font-weight: 600; margin: 0 0 1.5rem 0; }
-  .log-index { color: #888888; font-family: monospace; }
-  .log-answers-grid { display: flex; gap: 1rem; }
-  .log-badge { padding: 1rem; border: 1px solid #e0e0e0; flex: 1; font-size: 1rem; }
-  .log-badge.correct { background: #f0fdf4; border-color: #bbf7d0; color: #166534; }
-  .log-badge.incorrect { background: #fef2f2; border-color: #fecaca; color: #991b1b; }
-  .badge-label { font-weight: 700; display: block; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; opacity: 0.7; margin-bottom: 0.25rem; }
+  /* Review Logs Layout Grid */
+  .logs-header { max-width: 700px; margin: 4rem auto 1.5rem auto; border-bottom: 2px solid #000000; padding-bottom: 0.5rem; }
+  .logs-header h3 { font-size: 1.5rem; font-weight: 400; margin: 0; text-transform: uppercase; }
   
-  .results-actions { display: flex; justify-content: center; gap: 1rem; max-width: 700px; margin: 3rem auto 0 auto; }
+  .results-list { display: flex; flex-direction: column; gap: 1.5rem; }
+  .log-item-box { background: #ffffff; border: 1px solid #e0e0e0; padding: 2.5rem; max-width: 700px; margin: 0 auto; box-sizing: border-box; }
+  .log-question { font-size: 1.25rem; font-weight: 400; line-height: 1.4; margin: 0 0 2rem 0; }
+  .log-index { color: #888888; font-family: monospace; font-weight: 600; }
+  
+  .log-answers-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; align-items: stretch; }
+  .log-badge { padding: 1.5rem; border: 1px solid #e0e0e0; font-size: 1.05rem; line-height: 1.6; display: flex; flex-direction: column; }
+  
+  .log-badge.correct { border-left: 4px solid #10b981; }
+  .log-badge.incorrect { border-left: 4px solid #ef4444; }
+  .log-badge.expected-matrix { border-left: 4px solid #000000; background-color: #fafafa; }
+  
+  .badge-label { font-weight: 700; display: block; font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.75rem; }
+  .correct .badge-label { color: #10b981; }
+  .incorrect .badge-label { color: #ef4444; }
+  .expected-matrix .badge-label { color: #000000; }
+  
+  .log-badge-text { color: #222222; font-weight: 300; }
+  
+  .results-actions { display: flex; justify-content: center; gap: 1rem; max-width: 700px; margin: 4rem auto 0 auto; }
   .text-center-link { text-decoration: none; display: inline-flex; align-items: center; justify-content: center; }
+  
+  @media (max-width: 768px) {
+    .quiz-card-box, .log-item-box { padding: 2rem 1.5rem; }
+    .quiz-question-text { font-size: 1.25rem; }
+    .log-answers-grid { grid-template-columns: 1fr; gap: 1rem; }
+  }
   
   /* ==========================================================================
      7. FLUID RESPONSIVE MOBILE MEDIA QUERIES
@@ -425,3 +509,57 @@
       flex-direction: column;
     }
   }
+
+  /* --- Multi-Select Checkbox Styles --- */
+.multiselect-warning {
+  font-size: 0.75rem;
+  font-weight: 700;
+  background-color: #fffbeb;
+  color: #b45309;
+  border: 1px solid #fde68a;
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+}
+
+.checkbox-square {
+  width: 18px;
+  height: 18px;
+  border: 1px solid #cbd5e1;
+  background: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.1s ease;
+  flex-shrink: 0;
+  margin-left: 1rem;
+}
+
+.quiz-option-row.selected .checkbox-square {
+  background: #2563eb;
+  border-color: #2563eb;
+}
+
+.checkbox-check {
+  width: 6px;
+  height: 6px;
+  background: #ffffff;
+}
+
+/* --- Quiz Diagram Container Layout --- */
+.quiz-image-container {
+  width: 100%;
+  border: 1px solid #e0e0e0;
+  background: #fafafa;
+  margin: 1.5rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5rem;
+  box-sizing: border-box;
+}
+
+.quiz-circuit-img {
+  max-width: 100%;
+  max-height: 250px;
+  object-fit: contain;
+}

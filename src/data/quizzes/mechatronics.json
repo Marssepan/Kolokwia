@@ -1,14 +1,617 @@
 [
-    {
-      "id": 1,
-      "question": "Which communication protocol uses a differential two-wire bus?",
-      "options": ["SPI", "I2C", "CAN bus", "UART"],
-      "correctAnswer": "CAN bus"
-    },
-    {
-      "id": 2,
-      "question": "What is the typical resolution of an STM32F4 ADC?",
-      "options": ["8-bit", "10-bit", "12-bit", "16-bit"],
-      "correctAnswer": "12-bit"
-    }
-  ]
+  {
+    "id": 1,
+    "question": "Obwód RC, w którym wyjście jest połączone równolegle do kondensatora C:",
+    "image": "/elek-foto-1.png",
+    "options": [
+      "stanowi obwód filtra środkowoprzepustowego",
+      "ma stałą czasową τ = RC",
+      "ma stałą czasową τ = R / C",
+      "stanowi obwód filtra górnoprzepustowego",
+      "stanowi obwód filtra dolnoprzepustowego"
+    ],
+    "correctIndices": [1, 4]
+  },
+  {
+    "id": 2,
+    "question": "Konduktywność metali:",
+    "options": [
+      "modulowana jest drganiami termicznymi atomów w sieci krystalicznej",
+      "zależy od ruchliwości elektronów i dziur występujących w metalu",
+      "rośnie ze wzrostem temperatury",
+      "nie jest zależna od temperatury",
+      "maleje ze wzrostem temperatury"
+    ],
+    "correctIndices": [0, 4]
+  },
+  {
+    "id": 3,
+    "question": "Prąd przesunięcia I w kondensatorze o pojemności C opisany jest wzorem:",
+    "options": [
+      "I = dQ / dU",
+      "I = dU / dC",
+      "I = C * (dU / dt)",
+      "U = dI / dC",
+      "I = dQ / dt"
+    ],
+    "correctIndices": [2, 4]
+  },
+  {
+    "id": 4,
+    "question": "Konduktancja zastępcza połączenia równoległego rezystorów:",
+    "options": [
+      "jest sumą konduktancji poszczególnych rezystorów",
+      "jest sumą odwrotności konduktancji poszczególnych rezystorów",
+      "jest sumą rezystancji poszczególnych rezystorów",
+      "jest sumą odwrotności rezystancji poszczególnych rezystorów",
+      "jest sumą rezystywności poszczególnych rezystorów"
+    ],
+    "correctIndices": [0, 3]
+  },
+  {
+    "id": 5,
+    "question": "W metalach nośnikami prądu elektrycznego są:",
+    "options": [
+      "naładowane elektrycznie drobiny materiału",
+      "zjonizowane atomy",
+      "dipole elektryczne",
+      "dziury",
+      "elektrony"
+    ],
+    "correctIndices": [4]
+  },
+  {
+    "id": 6,
+    "question": "Strzałka napięcia:",
+    "options": [
+      "wskazuje kierunek przepływu prądu",
+      "określa kierunek przepływu energii",
+      "wskazuje kierunek poruszania się elektronów w polu elektrycznym",
+      "wskazuje punkt o wyższym potencjale",
+      "wskazuje punkt o niższym potencjale"
+    ],
+    "correctIndices": [3]
+  },
+  {
+    "id": 7,
+    "question": "Transformator:",
+    "options": [
+      "o przekładni 1:2 służy do obniżania napięcia",
+      "o przekładni 1:2 służy do podnoszenia napięcia",
+      "działa dzięki sprzężeniu dwóch kondensatorów w polu magnetycznym",
+      "działa dzięki sprzężeniu dwóch cewek w polu magnetycznym",
+      "służy do izolacji galwanicznej obwodu wejściowego i wyjściowego"
+    ],
+    "correctIndices": [1, 3, 4]
+  },
+  {
+    "id": 8,
+    "question": "Na rysunku przedstawiono charakterystykę zastępczą połączeń nieliniowych N1 i N2. Zaznacz prawdziwe zdania:",
+    "image": "/elek-foto-8.png",
+    "options": [
+      "charakterystykę N będącą ch-ką zastępczą połączenia równoległego elementów N1 i N2",
+      "charakterystykę elementu N posiadającego zakres ujemnej rezystancji dynamicznej",
+      "charakterystykę N będącą ch-ką zastępczą połączenia szeregowego elementów N1 i N2",
+      "charakterystykę elementu N2 posiadającego zakres ujemnej rezystancji dynamicznej",
+      "charakterystykę elementu N1 posiadającego zakres ujemnej rezystancji dynamicznej"
+    ],
+    "correctIndices": [0, 4]
+  },
+  {
+    "id": 9,
+    "question": "Obwód RC, w którym wyjście jest połączone równolegle do rezystora R:",
+    "image": "/elek-foto-9.png",
+    "options": [
+      "stanowi obwód filtra dolnoprzepustowego",
+      "stanowi obwód filtra środkowoprzepustowego",
+      "ma stałą czasową τ = R / C",
+      "stanowi obwód filtra górnoprzepustowego",
+      "ma stałą czasową τ = R * C"
+    ],
+    "correctIndices": [3, 4]
+  },
+  {
+    "id": 10,
+    "question": "Zaznacz prawidłowe zależności obowiązujące dla przedstawionego obwodu (równoległe R1 i R2):",
+    "image": "/elek-foto-10.png",
+    "options": [
+      "I1 ≠ I2 gdy R1 = R2",
+      "I1 = [R2 / (R1 + R2)] * I",
+      "I2 = I - I1",
+      "R1 = I / U",
+      "U1 = U2"
+    ],
+    "correctIndices": [1, 2, 4]
+  },
+  {
+    "id": 11,
+    "question": "Pojemność kondensatora płaskiego:",
+    "options": [
+      "zależy od wymiarów geometrycznych",
+      "zmniejsza się wraz ze zmniejszaniem odległości między okładkami",
+      "zależy od natężenia prądu płynącego w obwodzie",
+      "zależy od przenikalności dielektrycznej ośrodka którym jest wypełniony",
+      "wynika z ilości ładunku zgromadzonego na jego okładkach przy zadanym napięciu"
+    ],
+    "correctIndices": [0, 3, 4]
+  },
+  {
+    "id": 12,
+    "question": "Rezystancja R przewodu wykonanego z materiału o konduktywności γ, długości l i stałym przekroju poprzecznym o polu S:",
+    "image": "/elek-foto-12.png",
+    "options": [
+      "opisana jest wzorem R = (γ * S) / l",
+      "nie zależy od wymiarów przewodu",
+      "opisana jest wzorem R = S / (γ * l)",
+      "opisana jest wzorem R = l / (γ * S)",
+      "opisana jest wzorem R = (γ * l) / S"
+    ],
+    "correctIndices": [3]
+  },
+  {
+    "id": 13,
+    "question": "Rezystancja statyczna:",
+    "options": [
+      "ma zawsze wartość dodatnią",
+      "definiowana jest wzorem R = du / di",
+      "definiowana jest wzorem R = U / I",
+      "elementów nieliniowych zależy od punktu pracy",
+      "jest równa rezystancji dynamicznej rezystora liniowego"
+    ],
+    "correctIndices": [2, 3, 4]
+  },
+  {
+    "id": 14,
+    "question": "Zaznacz prawidłowe zależności obowiązujące dla przedstawionego obwodu (szeregowe R1 i R2):",
+    "image": "/elek-foto-14.png",
+    "options": [
+      "U1 = U2 - U",
+      "R1 = I / U1",
+      "R2 = U1 / I",
+      "U1 / U2 = R1 / R2",
+      "U1 = [R1 / (R1 + R2)] * U"
+    ],
+    "correctIndices": [3, 4]
+  },
+  {
+    "id": 15,
+    "question": "Zwrot strzałki prądu:",
+    "options": [
+      "jest przeciwny do zwrotu przemieszczania się dziur",
+      "jest przeciwny do zwrotu przemieszczania się elektronów",
+      "jest zgodny ze zwrotem przemieszczania się elektronów",
+      "jest zgodny ze zwrotem przemieszczania się dziur",
+      "w elementach biernych jest przeciwny do zwrotu strzałki napięcia"
+    ],
+    "correctIndices": [1, 3]
+  },
+  {
+    "id": 16,
+    "question": "W transformatorze:",
+    "options": [
+      "o przekładni 1:2 służy do obniżania napięcia",
+      "o przekładni 1:2 służy do podnoszenia napięcia",
+      "działa dzięki sprzężeniu dwóch kondensatorów w polu magnetycznym",
+      "działa dzięki sprzężeniu dwóch cewek w polu magnetycznym",
+      "służy do izolacji galwanicznej obwodu wejściowego i wyjściowego"
+    ],
+    "correctIndices": [1, 3, 4]
+  },
+  {
+    "id": 17,
+    "question": "W półprzewodniku samoistnym koncentracja elektronów n i koncentracja dziur p spełniają warunki:",
+    "options": [
+      "n < 0 dla T < 0K",
+      "n = 0 dla T = 0K",
+      "n > 0 dla T < 0K",
+      "n < p",
+      "n = p"
+    ],
+    "correctIndices": [1, 4]
+  },
+  {
+    "id": 18,
+    "question": "W półprzewodnikach nośnikami prądu elektrycznego są:",
+    "options": [
+      "zjonizowane atomy",
+      "dipole elektryczne",
+      "naładowane elektrycznie drobiny materiału",
+      "dziury",
+      "elektrony"
+    ],
+    "correctIndices": [3, 4]
+  },
+  {
+    "id": 19,
+    "question": "Przerwa zabroniona półprzewodników:",
+    "options": [
+      "określa minimalną wartość energii koniecznej do zaabsorbowania przez elektron aby mógł opuścić wiązanie kowalencyjne",
+      "określa minimalną wartość energii koniecznej do zaabsorbowania przez elektron aby mógł opuścić sieć krystaliczną",
+      "oddziela pasmo walencyjne od pasma przewodzenia",
+      "oddziela pasmo przewodzenia od poziomu próżni",
+      "zależy od składu materiału półprzewodnikowego"
+    ],
+    "correctIndices": [0, 2, 4]
+  },
+  {
+    "id": 20,
+    "question": "Konduktywność półprzewodnika:",
+    "options": [
+      "zależy od szerokości przerwy energetycznej Eg",
+      "zależy od ruchliwości elektronów i dziur",
+      "zależy od koncentracji nośników swobodnych",
+      "rośnie przy wzroście temperatury",
+      "spada przy wzroście temperatury"
+    ],
+    "correctIndices": [0, 1, 2, 3]
+  },
+  {
+    "id": 21,
+    "question": "Generacja par elektron-dziura:",
+    "options": [
+      "może nastąpić poprzez dostarczenie ciepła",
+      "polega na przejściu dziury z pasma przewodzenia do pasma walencyjnego",
+      "może nastąpić poprzez zderzenie elektronów (jonizację)",
+      "może nastąpić poprzez absorpcję fotonu",
+      "polega na przejściu elektronu z pasma przewodzenia do pasma walencyjnego"
+    ],
+    "correctIndices": [0, 2, 3]
+  },
+  {
+    "id": 22,
+    "question": "Wiązania kowalencyjne:",
+    "options": [
+      "polegają na przekazaniu elektronu walencyjnego atomu innym atomom, w wyniku czego powstają jony oddziałujące na siebie elektrostatycznie",
+      "są rodzajem wiązań chemicznych występujących w półprzewodnikach",
+      "polegają na wymianie protonów między jądrami sąsiadujących atomów",
+      "polegają na uwspólnieniu elektronów znajdujących się na powłoce walencyjnej z sąsiednimi atomami",
+      "mogą zostać zerwane skutkując powstaniem elektronu swobodnego"
+    ],
+    "correctIndices": [1, 3, 4]
+  },
+  {
+    "id": 23,
+    "question": "Zaznacz prawidłowe stwierdzenie:",
+    "options": [
+      "w półprzewodniku typu n nośnikami mniejszościowymi są dziury",
+      "w półprzewodniku samoistnym nośnikami większościowymi są elektrony",
+      "w półprzewodniku typu n nośnikami większościowymi są elektrony",
+      "w półprzewodniku typu n nośnikami większościowymi są dziury",
+      "w półprzewodniku typu n nośnikami mniejszościowymi są elektrony"
+    ],
+    "correctIndices": [0, 2]
+  },
+  {
+    "id": 24,
+    "question": "Elektrony w atomie:",
+    "options": [
+      "posiadają ładunek dodatni",
+      "mogą znajdować się tylko w określonym stanie kwantowym (posiadać skwantowaną energię)",
+      "są związane oddziaływaniem elektrostatycznym z dodatnio naładowanym jądrem atomowym",
+      "znajdują się w rdzeniu atomu",
+      "znajdują się na powłokach elektronowych"
+    ],
+    "correctIndices": [1, 2, 4]
+  },
+  {
+    "id": 25,
+    "question": "Konduktywność półprzewodników:",
+    "options": [
+      "modulowana jest drganiami termicznymi atomów w sieci krystalicznej",
+      "rośnie ze wzrostem temperatury",
+      "maleje ze wzrostem temperatury",
+      "zależy od ruchliwości elektronów i dziur",
+      "nie jest zależna od temperatury"
+    ],
+    "correctIndices": [0, 1, 3]
+  },
+  {
+    "id": 26,
+    "question": "Prąd dyfuzji:",
+    "options": [
+      "zależy od gradientu koncentracji nośników prądu",
+      "polega na przepływie nośników od miejsca o wyższej koncentracji do miejsca o niższej koncentracji",
+      "polega na przepływie nośników od miejsca o niższej koncentracji do miejsca o wyższej koncentracji",
+      "polega na przepływie elektronów w polu elektrycznym od miejsca o niższym potencjale do miejsca o wyższym potencjale",
+      "wynika z chaosu ruchu cieplnego ładunków dążącego do wyrównania gęstości nośników"
+    ],
+    "correctIndices": [0, 1, 4]
+  },
+  {
+    "id": 27,
+    "question": "W półprzewodnikach obserwujemy prąd:",
+    "options": [
+      "konwekcyjny",
+      "jonowy",
+      "przesunięcia",
+      "unoszenia",
+      "dyfuzyjny"
+    ],
+    "correctIndices": [3, 4]
+  },
+  {
+    "id": 28,
+    "question": "Zjawisko tunelowania elektronów przez obszar złącza obserwowane jest w:",
+    "options": [
+      "fotodiodach p-i-n",
+      "diodach Zenera",
+      "diodach prostowniczych",
+      "fotodiodach lawinowych",
+      "diodach Esakiego (diodach tunelowych)"
+    ],
+    "correctIndices": [1, 4]
+  },
+  {
+    "id": 29,
+    "question": "W warstwie zubożonej złącza p-n:",
+    "options": [
+      "znajdują się dodatnio naładowane jony domieszki po stronie półprzewodnika typu p",
+      "występuje pole elektryczne pochodzące od zjonizowanych domieszek",
+      "znajdują się ujemnie naładowane jony domieszki po stronie półprzewodnika typu p",
+      "znajdują się dodatnio naładowane jony domieszki po stronie półprzewodnika typu n",
+      "znajdują się ujemnie naładowane jony domieszki po stronie półprzewodnika typu n"
+    ],
+    "correctIndices": [1, 2, 3]
+  },
+  {
+    "id": 30,
+    "question": "Napięcie dyfuzyjne:",
+    "options": [
+      "określa wysokość bariery potencjału dla nośników większościowych",
+      "to napięcie w niespolaryzowanym złączu p-n wynikające z obecności pola elektrycznego pochodzącego od nieskompensowanych jonów domieszki",
+      "rośnie ze wzrostem szerokości przerwy energetycznej",
+      "maleje ze wzrostem szerokości przerwy energetycznej",
+      "nie zależy od temperatury"
+    ],
+    "correctIndices": [0, 1, 2]
+  },
+  {
+    "id": 31,
+    "question": "Typowo w układach stabilizatorów parametrycznych wykorzystuje się:",
+    "options": [
+      "termistory",
+      "fotodiody",
+      "diody prostownicze",
+      "diody Zenera",
+      "fotorezystory"
+    ],
+    "correctIndices": [3]
+  },
+  {
+    "id": 32,
+    "question": "Oświetlenie diody ze złączem p-n falą o energii Efot wywołuje zjawiska:",
+    "options": [
+      "powoduje wzrost fotoprądu jeśli Efot < Eg",
+      "może powodować wzrost temperatury diody",
+      "powoduje powstanie siły elektromotorycznej w niespolaryzowanym zewnętrznie złączu jeśli Efot > Eg",
+      "powoduje powstanie siły elektromotorycznej... jeśli Efot < Eg",
+      "powoduje wzrost fotoprądu jeśli Efot > Eg"
+    ],
+    "correctIndices": [1, 2, 4]
+  },
+  {
+    "id": 33,
+    "question": "Ze wzrostem temperatury w przyrządach półprzewodnikowych:",
+    "options": [
+      "dioda przestaje przewodzić prąd",
+      "maleje prąd przewodzenia diody ze złączem p-n",
+      "rośnie prąd wsteczny diody ze złączem p-n",
+      "maleje prąd wsteczny diody ze złączem p-n",
+      "rośnie prąd przewodzenia diody ze złączem p-n"
+    ],
+    "correctIndices": [2, 4]
+  },
+  {
+    "id": 34,
+    "question": "W diodzie ze złączem p-n wyróżniamy pojemności pasożytnicze:",
+    "options": [
+      "pojemność dyfuzyjną",
+      "pojemność upływu",
+      "pojemność złączową",
+      "pojemność przebicia",
+      "pojemność unoszenia"
+    ],
+    "correctIndices": [0, 2]
+  },
+  {
+    "id": 35,
+    "question": "Przebicie złącza p-n:",
+    "options": [
+      "spowodowane jest zjawiskiem tunelowania elektronów przez złącze w silnie domieszkowanych złączach",
+      "spowodowane jest zjawiskiem tunelowania elektronów przez złącze w słabo domieszkowanych złączach",
+      "spowodowane jest zjawiskiem powielania lawinowego w silnie domieszkowanych złączach",
+      "spowodowane jest zjawiskiem powielania lawinowego w słabo domieszkowanych złączach",
+      "występuje przy charakterystycznym dla złącza napięciu Zenera dla polaryzacji w kierunku przewodzenia"
+    ],
+    "correctIndices": [0, 3]
+  },
+  {
+    "id": 36,
+    "question": "Współczynnik wzmocnienia prądowego tranzystora bipolarnego w układzie WE:",
+    "options": [
+      "zależy od punktu pracy",
+      "jest mniejszy od 1",
+      "wyrażony jest jako Ic/Ie",
+      "wyrażony jest jako Ic/Ib",
+      "jest większy od 1"
+    ],
+    "correctIndices": [0, 3, 4]
+  },
+  {
+    "id": 37,
+    "question": "Podać warunek polaryzacji tranzystora NPN do pracy aktywnej inwersyjnej:",
+    "image": "/elek-foto-37.png",
+    "options": [
+      "VE > VB",
+      "VE > VC",
+      "VE < VB",
+      "VC > VB",
+      "VC < VB"
+    ],
+    "correctIndices": [0, 1, 4]
+  },
+  {
+    "id": 38,
+    "question": "We wzmacniaczu tranzystorowym pracującym w klasie B:",
+    "options": [
+      "element aktywny przewodzi przez połowę okresu sygnału sterującego",
+      "element aktywny przewodzi przez cały okres sygnału sterującego",
+      "element aktywny przewodzi przez więcej niż połowę okresu sygnału sterującego",
+      "element aktywny przewodzi przez 3/4 okresu sygnału sterującego",
+      "element aktywny przewodzi przez mniej niż połowę okresu sygnału sterującego"
+    ],
+    "correctIndices": [0]
+  },
+  {
+    "id": 39,
+    "question": "Podać warunek polaryzacji tranzystora PNP do pracy aktywnej normalnej:",
+    "image": "/elek-foto-39.png",
+    "options": [
+      "VE > VB",
+      "VE < VB",
+      "VE > VC",
+      "VC > VB",
+      "VC < VB"
+    ],
+    "correctIndices": [0, 2, 4]
+  },
+  {
+    "id": 40,
+    "question": "W modelu zastępczym małosygnałowym tranzystora bipolarnego w układzie WE parametr h21 oznacza:",
+    "options": [
+      "rezystancję wejściową",
+      "wzmocnienie mocy",
+      "wzmocnienie prądowe",
+      "wzmocnienie napięciowe",
+      "rezystancję wyjściową"
+    ],
+    "correctIndices": [2]
+  },
+  {
+    "id": 41,
+    "question": "Podać warunek polaryzacji tranzystora PNP do pracy aktywnej inwersyjnej:",
+    "image": "/elek-foto-41.png",
+    "options": [
+      "VC < VB",
+      "VC > VB",
+      "VE < VB",
+      "VE > VB",
+      "VE > VC"
+    ],
+    "correctIndices": [1, 2]
+  },
+  {
+    "id": 42,
+    "question": "W tranzystorze bipolarnym w stanie aktywnym normalnym:",
+    "options": [
+      "Złącze B-C polaryzowane jest zaporowo",
+      "Złącze E-B polaryzowane jest zaporowo",
+      "Złącze E-C polaryzowane jest zaporowo",
+      "Złącze B-C polaryzowane jest w kier. przewodzenia",
+      "Złącze E-B polaryzowane jest w kier. przewodzenia"
+    ],
+    "correctIndices": [0, 4]
+  },
+  {
+    "id": 43,
+    "question": "Dla tranzystorów unipolarnych różniczkowe parametry małosygnałowe transkonduktancji gm i konduktancji wyjściowej gds definiuje się jako:",
+    "options": [
+      "gm = dID / dUGS",
+      "gds = dID / dUGS",
+      "gds = dUDS / dID",
+      "gds = dID / dUDS",
+      "gm = dUGS / dID"
+    ],
+    "correctIndices": [0, 3]
+  },
+  {
+    "id": 44,
+    "question": "Na rysunku przedstawiono charakterystykę przejściową tranzystora polowego. Zaznacz prawidłowe typy:",
+    "image": "/elek-foto-44.png",
+    "options": [
+      "przejściową",
+      "wyjściową",
+      "tranzystora PNFET",
+      "tranzystora MOSFET z kanałem wzbogacanym",
+      "tranzystora MOSFET z kanałem zubażanym"
+    ],
+    "correctIndices": [0, 2, 4]
+  },
+  {
+    "id": 45,
+    "question": "Na rysunku przedstawiono charakterystykę wyjściową tranzystora polowego. Zaznacz prawidłowe typy:",
+    "image": "/elek-foto-45.png",
+    "options": [
+      "tranzystora MOSFET z kanałem zubażanym",
+      "wyjściową",
+      "tranzystora PNFET",
+      "przejściową",
+      "tranzystora MOSFET z kanałem wzbogacanym"
+    ],
+    "correctIndices": [0, 1, 2]
+  },
+  {
+    "id": 46,
+    "question": "Na poniższym rysunku przedstawiono symbol struktury:",
+    "image": "/elek-foto-46.png",
+    "options": [
+      "tranzystora DMOSFET z kanałem typu N",
+      "tranzystora bipolarnego",
+      "tranzystora EMOSFET",
+      "tranzystora P-JFET",
+      "tranzystora N-JFET"
+    ],
+    "correctIndices": [2]
+  },
+  {
+    "id": 47,
+    "question": "Na rysunku przedstawiono specyficzną charakterystykę przejściową tranzystora PNFET. Zaznacz prawidłowe opisy:",
+    "image": "/elek-foto-47.png",
+    "options": [
+      "tranzystora MOSFET z kanałem wzbogacanym",
+      "tranzystora MOSFET z kanałem zubażanym",
+      "przejściową",
+      "wejściową",
+      "tranzystora PNFET"
+    ],
+    "correctIndices": [1, 2, 4]
+  },
+  {
+    "id": 48,
+    "question": "Podać warunki prawidłowej polaryzacji tranzystora JFET z kanałem n przedstawionego na rysunku:",
+    "image": "/elek-foto-48.png",
+    "options": [
+      "VD < VS",
+      "VD = VS",
+      "VG < VS",
+      "VD > VS",
+      "VG > VS"
+    ],
+    "correctIndices": [2, 3]
+  },
+  {
+    "id": 49,
+    "question": "Układy CMOSFET:",
+    "options": [
+      "składają się z dwu tranzystorów PMOSFET",
+      "składają się z dwu tranzystorów NMOSFET",
+      "składają się z tranzystorów IGBT, MOSFET i JFET",
+      "składają się z pary tranzystorów NMOSFET i PMOSFET",
+      "składają się z pary tranzystorów NJFET i PJFET"
+    ],
+    "correctIndices": [3]
+  },
+  {
+    "id": 50,
+    "question": "Poniżej przedstawiono tablicę prawdy dwuwejściowej bramki logicznej. Zidentyfikuj jej typ:",
+    "image": "/elek-foto-50.png",
+    "options": [
+      "XNOR",
+      "XOR",
+      "AND",
+      "OR",
+      "NOR"
+    ],
+    "correctIndices": [1]
+  }
+]
