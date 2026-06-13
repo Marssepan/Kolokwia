@@ -8,7 +8,7 @@ import QuizView from './pages/QuizView';
 export default function App() {
   return (
     <Router>
-      <Navbar /> {/* This renders your sleek, updated navigation container */}
+      <Navbar />
       <main>
         <Routes>
           <Route path="/" element={<Home />} />

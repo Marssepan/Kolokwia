@@ -7,10 +7,10 @@ export const subjects = [
       notesPath: 'notes/mechatronics.md', // Placed in public folder
     },
     {
-      id: 'embedded-c',
-      title: 'Embedded C',
-      description: 'Low-level programming and registers.',
-      icon: '💻',
-      notesPath: 'notes/embedded-c.md',
+      id: "material-science", // 👈 This must match your file name EXACTLY
+      title: "Inżynieria Materiałowa",
+      description: "Struktury krystaliczne, wykresy równowagi fazowej oraz mechanizmy umacniania stopów.",
+      icon: "🔬",
+      pdfPath: 'notes/material.pdf',
     }
   ];
