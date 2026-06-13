@@ -3,6 +3,7 @@ import { HashRouter as Router, Routes, Route, Link } from 'react-router-dom';
 import Home from './pages/Home';
 import NotesView from './pages/NotesView';
 import QuizView from './pages/QuizView';
+import Navbar from './components/Navbar'; // Add this import at the top
 
 export default function App() {
   return (
