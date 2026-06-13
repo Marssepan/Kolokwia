@@ -4,13 +4,13 @@ export const subjects = [
       title: 'Mechatronics Systems',
       description: 'Microcontrollers, sensors, and actuators.',
       icon: '🤖',
-      notesPath: '/notes/mechatronics.md', // Placed in public folder
+      notesPath: 'notes/mechatronics.md', // Placed in public folder
     },
     {
       id: 'embedded-c',
       title: 'Embedded C',
       description: 'Low-level programming and registers.',
       icon: '💻',
-      notesPath: '/notes/embedded-c.md',
+      notesPath: 'notes/embedded-c.md',
     }
   ];
