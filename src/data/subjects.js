@@ -1,6 +1,6 @@
 export const subjects = [
     {
-      id: 'mechatronics',
+      id: 'EIUE',
       title: 'Elementy i układy elektroniczne',
       description: 'Wszystko co potrzebne do nieszczęścia',
       icon: '🤖',
