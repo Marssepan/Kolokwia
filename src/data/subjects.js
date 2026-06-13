@@ -2,7 +2,7 @@ export const subjects = [
     {
       id: 'mechatronics',
       title: 'Elementy i układy elektroniczne',
-      description: 'Microcontrollers, sensors, and actuators.',
+      description: 'Wszystko co potrzebne do nieszczęścia',
       icon: '🤖',
       notesPath: 'notes/mechatronics.md', // Placed in public folder
     },
