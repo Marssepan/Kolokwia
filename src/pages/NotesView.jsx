@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
+import rehypeRaw from 'rehype-raw'; // Fixes the <sup> and <sub> bugs
 import { subjects } from '../data/subjects';
 
 export default function NotesView() {
@@ -13,51 +14,38 @@ export default function NotesView() {
       fetch(subject.notesPath)
         .then(res => res.text())
         .then(text => setMarkdown(text))
-        .catch(() => setMarkdown('# Error\nCould not parse core documentation repository markdown.'));
+        .catch(() => setMarkdown('# Error\nCould not load notes.'));
     }
   }, [subject]);
 
-  if (!subject) return <div className="p-6 text-center text-slate-500">Registry target invalid.</div>;
+  if (!subject) return <div className="main-layout">Subject registry missing.</div>;
 
   return (
-    <div className="max-w-3xl mx-auto space-y-6">
-      <div className="flex items-center">
-        <Link to="/" className="inline-flex items-center text-xs font-bold uppercase tracking-wider text-slate-400 hover:text-slate-700 transition">
-          ← Main Registry
-        </Link>
+    <div className="main-layout">
+      <div className="back-nav">
+        <Link to="/" className="back-link">← Back to Dashboard</Link>
       </div>
 
-      <div className="bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden">
-        {/* Document Header banner */}
-        <div className="p-6 md:p-8 bg-slate-950 text-white border-b border-slate-800">
-          <div className="text-xl md:text-2xl font-bold tracking-tight">{subject.title}</div>
-          <p className="text-slate-400 font-mono text-xs mt-1">DOC_ID: {subject.id.toUpperCase()} // REF_DATA</p>
+      <div className="document-container">
+        <div className="document-header">
+          <h1 className="document-title">{subject.title}</h1>
+          <p className="document-meta">DOC_ID: {subject.id.toUpperCase()} // TECHNICAL NOTES</p>
         </div>
 
-        {/* Markdown Text Area */}
-        <div className="p-6 md:p-10">
-          <article className="prose prose-slate max-w-none 
-            prose-headings:font-bold prose-headings:text-slate-950 prose-headings:tracking-tight
-            prose-h1:text-xl prose-h1:md:text-2xl prose-h1:border-b prose-h1:pb-2
-            prose-h2:text-lg prose-h2:md:text-xl
-            prose-p:text-sm prose-p:md:text-base prose-p:leading-relaxed text-slate-600
-            prose-code:bg-slate-100 prose-code:px-1.5 prose-code:py-0.5 prose-code:rounded prose-code:text-xs prose-code:font-mono prose-code:text-rose-600 before:content-none after:content-none
-            prose-pre:bg-slate-950 prose-pre:text-slate-100 prose-pre:rounded-xl prose-pre:p-4 prose-pre:text-xs prose-pre:overflow-x-auto">
-            <ReactMarkdown>{markdown}</ReactMarkdown>
+        <div className="document-body">
+          <article className="markdown-content">
+            <ReactMarkdown rehypePlugins={[rehypeRaw]}>{markdown}</ReactMarkdown>
           </article>
         </div>
 
-        {/* Dynamic Contextual Quiz Trigger Box */}
-        <div className="p-6 md:p-8 bg-slate-50 border-t border-slate-200/60 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4">
-          <div className="space-y-0.5">
-            <div className="text-sm font-bold text-slate-900">Ready to test your knowledge?</div>
-            <p className="text-xs text-slate-500">Run through an adaptive self-evaluation check based on these logs.</p>
+        {/* Spacious, balanced action box for Quiz launch */}
+        <div className="quiz-trigger-zone">
+          <div className="quiz-trigger-text">
+            <h3>Ready for verification?</h3>
+            <p>Launch a validation sequence using parameters from these core notes.</p>
           </div>
-          <Link 
-            to={`/quiz/${subject.id}`} 
-            className="inline-flex items-center justify-center text-center bg-indigo-600 hover:bg-indigo-700 active:bg-indigo-800 text-white px-5 py-3 rounded-xl font-bold text-xs uppercase tracking-wider shadow-sm shadow-indigo-100 transition whitespace-nowrap"
-          >
-            Launch Subject Quiz
+          <Link to={`/quiz/${subject.id}`} className="quiz-launch-btn">
+            Start Subject Quiz →
           </Link>
         </div>
       </div>
